@@ -6,8 +6,8 @@
 
 A ordenação é essencial porque garante que possamos eliminar metades da lista de maneira confiável, já que os elementos seguem uma sequência lógica. Isso torna possível prever onde um determinado valor pode estar.
 
-Ex:  Lista: [2, 4, 7, 10, 15, 20, 25],
-Lista2: [25, 20, 15, 10, 7, 4, 2]
+Ex:  Lista: [2, 5, 7, 13, 17, 21, 25],
+Lista2: [25, 21, 17, 13, 7, 5, 2]
 
 ## 2. Interpolation Search
 - Crie uma função que implemente o Interpolation Search e teste-a em listas ordenadas com intervalos uniformes e não uniformes. Compare com o Binary Search.
@@ -144,13 +144,13 @@ O **Bucket Sort** é um algoritmo de ordenação que distribui os elementos de u
 
 ### Exemplo
 
-Dada a lista: `[0.42, 0.32, 0.13, 0.24, 0.53, 0.51]` e 5 baldes:
+Dada a lista: `[0.41, 0.32, 0.13, 0.24, 0.56, 0.51]` e 5 baldes:
 
 - **Passo 1**: Distribuir os elementos nos baldes.
 - **Passo 2**: Ordenar os baldes.
 - **Passo 3**: Concatenar os baldes ordenados.
 
-**Resultado final**: `[0.13, 0.24, 0.32, 0.42, 0.51, 0.53]`
+**Resultado final**: `[0.13, 0.24, 0.32, 0.41, 0.51, 0.56]`
 
 
 ## 9. Radix Sort
