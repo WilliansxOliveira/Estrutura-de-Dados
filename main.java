@@ -1,5 +1,5 @@
-import Search.*;
-import Sort.*;
+import search.*;
+import sort.*;
 
 import java.io.Console;
 
