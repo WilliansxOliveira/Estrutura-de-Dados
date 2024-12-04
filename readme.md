@@ -398,7 +398,7 @@ A escolha da base no **Radix Sort** depende do contexto e do tipo de dados. A ba
 ## 19. Análise Visual dos Algoritmos
 - Crie gráficos para ilustrar como os algoritmos de ordenação (Merge Sort, Quick Sort, Selection Sort) reorganizam os elementos a cada etapa.
 
-https://miro.medium.com/v2/resize:fit:1280/1*5tcSge_i3w774Js1q3O7Mw.png
+![image] https://miro.medium.com/v2/resize:fit:1280/1*5tcSge_i3w774Js1q3O7Mw.png
 
 ## 20. Desafios de Implementação
 - Crie um programa que permita ao usuário escolher um algoritmo de busca e ordenação para ordenar uma lista ou procurar um elemento, oferecendo comparações automáticas entre os métodos.
