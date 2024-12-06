@@ -9,6 +9,7 @@ A ordenação é essencial porque garante que possamos eliminar metades da lista
 Ex:  Lista: [2, 5, 7, 13, 17, 21, 25],
 Lista2: [25, 21, 17, 13, 7, 5, 2]
 
+
 ## 2. Interpolation Search
 - Crie uma função que implemente o Interpolation Search e teste-a em listas ordenadas com intervalos uniformes e não uniformes. Compare com o Binary Search.
 - Identifique casos em que o Interpolation Search é mais eficiente que o Binary Search.
@@ -19,6 +20,7 @@ Lista2: [25, 21, 17, 13, 7, 5, 2]
 
 ### Quando o Binary Search é melhor:
 - Distribuições Não Uniformes: Se a lista não for uniforme, o Interpolation Search pode ser menos eficiente, pois as estimativas de posição podem ser menos precisas.
+
 
 ## 3. Jump Search
 - Desenvolva o algoritmo Jump Search e determine o tamanho ideal do "salto" para uma lista de tamanho

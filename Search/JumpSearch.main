@@ -1,0 +1,72 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <time.h>
+
+// Função para realizar o Jump Search
+int jumpSearch(int arr[], int size, int target) {
+    int step = sqrt(size);  // Tamanho do salto
+    int prev = 0;
+
+    // Encontrar o bloco onde o elemento pode estar
+    while (arr[step < size ? step : size - 1] < target) {
+        prev = step;
+        step += sqrt(size);
+        if (prev >= size) return -1;  // Elemento não encontrado
+    }
+
+    // Pesquisa linear no bloco identificado
+    for (int i = prev; i < step && i < size; i++) {
+        if (arr[i] == target) return i;
+    }
+    return -1;  // Elemento não encontrado
+}
+
+// Função para realizar o Binary Search
+int binarySearch(int arr[], int size, int target) {
+    int left = 0, right = size - 1;
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+
+        if (arr[mid] == target) return mid;
+        else if (arr[mid] < target) left = mid + 1;
+        else right = mid - 1;
+    }
+    return -1;  // Elemento não encontrado
+}
+
+// Função para medir o tempo de execução
+double measureTime(int (*searchFunc)(int[], int, int), int arr[], int size, int target) {
+    clock_t start, end;
+    start = clock();
+    searchFunc(arr, size, target);
+    end = clock();
+    return ((double)(end - start)) / CLOCKS_PER_SEC;
+}
+
+int main() {
+    // Configuração da lista
+    int sizes[] = {1000, 10000, 100000};  // Tamanhos das listas
+    int numSizes = sizeof(sizes) / sizeof(sizes[0]);
+
+    for (int s = 0; s < numSizes; s++) {
+        int size = sizes[s];
+        int *arr = (int *)malloc(size * sizeof(int));
+        for (int i = 0; i < size; i++) arr[i] = i;  // Lista ordenada
+
+        int target = size - 1;  // Buscar o último elemento (pior caso)
+
+        // Medir tempos
+        double timeJump = measureTime(jumpSearch, arr, size, target);
+        double timeBinary = measureTime(binarySearch, arr, size, target);
+
+        // Resultados
+        printf("Tamanho da lista: %d\n", size);
+        printf("Jump Search: %.8f segundos\n", timeJump);
+        printf("Binary Search: %.8f segundos\n\n", timeBinary);
+
+        free(arr);
+    }
+
+    return 0;
+}

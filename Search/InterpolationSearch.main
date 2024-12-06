@@ -1,0 +1,88 @@
+#include <stdio.h>
+
+// Função de Interpolation Search
+int interpolationSearch(int arr[], int n, int x) {
+    int low = 0, high = n - 1;
+
+    while (low <= high && x >= arr[low] && x <= arr[high]) {
+        if (low == high) {
+            if (arr[low] == x)
+                return low;
+            return -1;
+        }
+
+        // Fórmula de interpolação
+        int pos = low + ((double)(high - low) / (arr[high] - arr[low]) * (x - arr[low]));
+
+        if (arr[pos] == x)
+            return pos;
+
+        if (arr[pos] < x)
+            low = pos + 1;
+        else
+            high = pos - 1;
+    }
+
+    return -1;
+}
+
+// Função de Binary Search
+int binarySearch(int arr[], int n, int x) {
+    int low = 0, high = n - 1;
+
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+
+        if (arr[mid] == x)
+            return mid;
+
+        if (arr[mid] < x)
+            low = mid + 1;
+        else
+            high = mid - 1;
+    }
+
+    return -1;
+}
+
+// Função para testar e comparar os algoritmos
+void testSearches(int arr[], int n, int x) {
+    printf("Procurando por %d:\n", x);
+
+    // Interpolation Search
+    int resultInterpolation = interpolationSearch(arr, n, x);
+    if (resultInterpolation != -1)
+        printf("Interpolation Search: Encontrado no índice %d\n", resultInterpolation);
+    else
+        printf("Interpolation Search: Não encontrado\n");
+
+    // Binary Search
+    int resultBinary = binarySearch(arr, n, x);
+    if (resultBinary != -1)
+        printf("Binary Search: Encontrado no índice %d\n", resultBinary);
+    else
+        printf("Binary Search: Não encontrado\n");
+}
+
+// Função principal para testar com diferentes listas
+int main() {
+    // Lista ordenada com intervalos uniformes
+    int arrUniform[] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+    int nUniform = sizeof(arrUniform) / sizeof(arrUniform[0]);
+
+    // Lista ordenada com intervalos não uniformes
+    int arrNonUniform[] = {5, 15, 40, 45, 50, 70, 90, 130, 150, 200};
+    int nNonUniform = sizeof(arrNonUniform) / sizeof(arrNonUniform[0]);
+
+    // Testando para listas uniformes
+    printf("=== Lista com intervalos uniformes ===\n");
+    testSearches(arrUniform, nUniform, 70);
+    testSearches(arrUniform, nUniform, 35);
+
+    // Testando para listas não uniformes
+    printf("\n=== Lista com intervalos não uniformes ===\n");
+    testSearches(arrNonUniform, nNonUniform, 70);
+    testSearches(arrNonUniform, nNonUniform, 35);
+
+    return 0;
+}
